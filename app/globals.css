@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Poppins self-hosted ─────────────────────────────────────── */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-500italic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-600italic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-v24-latin-700italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
+/* ─── Hub design tokens ───────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-hub-bg:         #ffffff;
+  --color-hub-surface:    #F6F5F4;
+  --color-hub-navy:       #0A1931;
+  --color-hub-gray:       #615d59;
+  --color-hub-muted:      #a39e98;
+  --color-hub-aqua:       #058ead;
+  --color-hub-aqua-dark:  #046f8a;
+  --color-hub-border:     rgba(0, 0, 0, 0.1);
+  --color-hub-purple:     #66023C;
+
+  /* Font */
+  --font-sans: 'Poppins', sans-serif;
+
+  /* Shadows */
+  --shadow-hub-ring:     0px 0px 0px 1px rgba(0,0,0,0.08);
+  --shadow-hub-subtle:   rgba(23,23,23,0.06) 0px 3px 6px;
+  --shadow-hub-standard: rgba(50,50,93,0.25) 0px 15px 25px -15px, rgba(0,0,0,0.1) 0px 8px 16px -8px;
+  --shadow-hub-whisper:  rgba(0,0,0,0.05) 0px 4px 24px;
+  --shadow-hub-elevated: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+
+  /* Border radius */
+  --radius-btn:   4px;
+  --radius-card:  8px;
+  --radius-badge: 9999px;
+
+  /* Spacing */
+  --spacing-section:   clamp(64px, 8vw, 120px);
+  --spacing-container: clamp(1.25rem, 5vw, 2.5rem);
+  --width-container:   1280px;
+  --width-tool:        680px;
+  --width-text:        640px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #0A1931;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100vh;
 }
