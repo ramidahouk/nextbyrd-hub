@@ -47,24 +47,21 @@ const pathCopy: Record<
     headline: "You need a full service site with showcase and bookings",
     ctaLabel: "Ready to scope this properly?",
     ctaButton: "Get in touch",
-    builderComparison:
-      "Builders cover showcase + booking at \u20ac40-\u20ac60/month. The lock-in risk is real: Wix and Squarespace cannot be migrated without rebuilding. For a business where the website is a primary sales tool, owning the code is worth the upfront investment.",
+    builderComparison: "",
   },
   "ecommerce-standard": {
     badge: "E-commerce Store",
     headline: "You need a standard e-commerce store",
     ctaLabel: "Ready to scope this properly?",
     ctaButton: "Get in touch",
-    builderComparison:
-      "Shopify (\u20ac25-\u20ac66/month) is a legitimate choice for standard e-commerce - it's the most mature platform at this scale and the ecosystem is deep. The trade-off is ongoing fees plus 0.5-2% transaction fees if you use a third-party payment provider. A custom build makes sense when you need logic Shopify's templates can't support.",
+    builderComparison: "",
   },
   "ecommerce-complex": {
     badge: "Custom E-commerce Build",
     headline: "You need a custom e-commerce build",
     ctaLabel: "Ready to scope this properly?",
     ctaButton: "Get in touch",
-    builderComparison:
-      "No builder handles this scope reliably. Complex catalogue filtering, custom user accounts, ERP integrations - these require a custom build. Shopify Plus exists for enterprise scale but starts at around \u20ac2,300/month. At your scope, a custom agency build is the correct path.",
+    builderComparison: "",
   },
   portfolio: {
     badge: "Portfolio Website",
@@ -79,8 +76,7 @@ const pathCopy: Record<
     headline: "You need a portfolio site with booking",
     ctaLabel: "Ready to scope this properly?",
     ctaButton: "Get in touch",
-    builderComparison:
-      "Squarespace or Wix covers portfolio + booking at \u20ac18-\u20ac40/month. The lock-in risk: neither exports properly. For a consultant whose site is their primary business tool, owning the code means you can grow, change, or move without rebuilding.",
+    builderComparison: "",
   },
   "client-portal": {
     badge: "Client Portal",
@@ -222,6 +218,34 @@ function moneyRange(country: Country, low: number, high: number): string {
   return `${formatPrice(country, low)} - ${formatPrice(country, high)}`;
 }
 
+function monthlyRange(country: Country, low: number, high: number): string {
+  return `${moneyRange(country, low, high)}/month`;
+}
+
+function monthlyPrice(country: Country, amount: number): string {
+  return `${formatPrice(country, amount)}/month`;
+}
+
+function builderComparison(path: ResultPath, country: Country): string {
+  if (path === "local-full") {
+    return `Builders cover showcase + booking at ${monthlyRange(country, 40, 60)}. The lock-in risk is real: Wix and Squarespace cannot be migrated without rebuilding. For a business where the website is a primary sales tool, owning the code is worth the upfront investment.`;
+  }
+
+  if (path === "ecommerce-standard") {
+    return `Shopify (${monthlyRange(country, 25, 66)}) is a legitimate choice for standard e-commerce - it's the most mature platform at this scale and the ecosystem is deep. The trade-off is ongoing fees plus 0.5-2% transaction fees if you use a third-party payment provider. A custom build makes sense when you need logic Shopify's templates can't support.`;
+  }
+
+  if (path === "ecommerce-complex") {
+    return `No builder handles this scope reliably. Complex catalogue filtering, custom user accounts, ERP integrations - these require a custom build. Shopify Plus exists for enterprise scale but starts at around ${monthlyPrice(country, 2300)}. At your scope, a custom agency build is the correct path.`;
+  }
+
+  if (path === "portfolio-booking") {
+    return `Squarespace or Wix covers portfolio + booking at ${monthlyRange(country, 18, 40)}. The lock-in risk: neither exports properly. For a consultant whose site is their primary business tool, owning the code means you can grow, change, or move without rebuilding.`;
+  }
+
+  return pathCopy[path].builderComparison;
+}
+
 function yearlyCareCost(path: ResultPath, country: Country): string {
   const isPortfolio = path === "portfolio" || path === "portfolio-booking";
   const low = isPortfolio ? 600 : 1200;
@@ -344,6 +368,7 @@ export function getResultCopy(
 ): ResultCopy {
   return {
     ...pathCopy[path],
+    builderComparison: builderComparison(path, country),
     bullets: resultBullets(path, answers, country),
     ongoingCosts: ongoingCosts(path, country, answers),
     notIncluded: notIncluded(path, country),

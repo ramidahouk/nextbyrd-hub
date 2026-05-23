@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClipboardList } from "lucide-react";
 import ToolPageHeader from "@/components/layout/ToolPageHeader";
-import AdSlot from "@/components/ui/AdSlot";
+import FaqShell, { websiteCostFaqJsonLd } from "@/components/ui/FaqShell";
 import ScopeTool from "@/components/ScopeTool";
 
 export const metadata: Metadata = {
@@ -32,15 +32,18 @@ export default function WebsiteCostCalculatorPage() {
     <>
       <ToolPageHeader
         name="Website Cost Calculator"
-        description="Answer 5 questions. Get a clear scope and price range for your website project."
+        description="Answer 5 questions. Find out what your website should cost. No sign-up."
         Icon={ClipboardList}
       />
 
       <ScopeTool />
 
-      <div className="mx-auto max-w-320 px-container pb-16">
-        <AdSlot zone="tool-bottom" />
-      </div>
+      <FaqShell />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteCostFaqJsonLd) }}
+      />
     </>
   );
 }

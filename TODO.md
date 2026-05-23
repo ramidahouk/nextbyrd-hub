@@ -20,7 +20,7 @@ Ordered by priority. Update at the start and end of every session.
 - [ ] Step 11 - Verify metadata on every route
 - [ ] Step 12 - Deploy to Vercel, Lighthouse 90+ on mobile
 
-## Tool 1 refactor for 2026-05-23 docs
+## Tool 1 phase
 
 - [x] Implement latest docs sync: adjusted Q3/Q4 ranges, Q3-aware retainer vs maintenance costs, and active-question-first layout
 - [x] Replace old tier calculator with country-first decision tree: `CountryScreen`, dynamic `questions.ts`, `getResultPath()`, `MARKET_PRICING`, and no `OpeningScreen`
@@ -31,5 +31,6 @@ Ordered by priority. Update at the start and end of every session.
 - [x] Update storage to persist `hub_scope_country` and `hub_scope_answers`
 - [x] Remove stale repo `DESIGN.md`; use `docs/Hub/DESIGN.md` as the design source of truth
 - [x] Implement live estimate digit-scroll from `AnimateNumberSmooth.md` and keep the right panel stable instead of fading per answer
-- [ ] QA all states at 375px and desktop, including edit/reset and result panel
+- [x] QA all states at 375px and desktop, including edit/reset and result panel
 - [x] Run lint and production build
+- [x] Tool 1 complete - Website Cost Calculator ready for launch review

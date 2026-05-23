@@ -220,7 +220,7 @@ export default function ScopeTool() {
   }
 
   return (
-    <section className="bg-hub-surface py-12 sm:py-16">
+    <section className="bg-hub-surface pt-8 pb-12 sm:pt-8 sm:pb-16">
       <div className="mx-auto w-full max-w-[1200px] px-container">
         <div className="grid gap-8 md:grid-cols-[minmax(0,640px)_minmax(320px,440px)] md:gap-20">
           <div className="min-w-0">

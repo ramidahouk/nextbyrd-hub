@@ -7,6 +7,10 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ## 2026-05-23 - Tool 1 docs alignment
 
+- [Codex] QA - Completed final Tool 1 QA across desktop and 375px mobile, including adjusted result prices, FAQ + JSON-LD, reset, refresh persistence, edit flow clearing downstream answers, and mobile hiding the live estimate panel
+- [Codex] Fix - Aligned the FAQ section to the tool page's 1200px container rhythm while keeping answer text constrained for readability
+- [Codex] Fix - Synced the new Tool 1 FAQ page spec: real "Common questions" HTML content, FAQPage JSON-LD, no accordion, and no tool-bottom ad on the calculator page
+- [Codex] Fix - Removed unused `OpeningScreen`, added the calculator FAQ shell, and made builder-comparison monthly price examples use the selected country currency
 - [Codex] Fix - Muted completed answer cards so the active question and current answer options sit higher in the UX hierarchy
 - [Codex] Fix - Implemented the latest Tool 1 docs sync: Q3/Q4 adjusted pricing ranges, adjusted budget options and result prices, Q3-aware agency retainer versus optional maintenance costs, branch-specific Q2 headings, and active-question-first layout with completed answers stacked below newest-first
 - [Codex] Fix - Made the result panel's "What you'll pay after launch" costs use the selected country currency instead of currency-less ranges
