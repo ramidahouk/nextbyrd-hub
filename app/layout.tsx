@@ -4,10 +4,15 @@ import HubHeader from "@/components/layout/HubHeader";
 import HubFooter from "@/components/layout/HubFooter";
 
 export const metadata: Metadata = {
-  title: "Free Website Tools for Business Owners — hub.nextbyrd.com",
+  title: "Free Website Tools: Cost Calculator, Website Grader, and Planning Tools",
   description:
-    "Free tools to help you scope your website, choose the right stack, and understand what you should pay. No sign-up required.",
+    "Free tools to plan, audit, and improve your website. Starting from scratch or fixing what is not working, find your answer in minutes. No sign-up.",
   metadataBase: new URL("https://hub.nextbyrd.com"),
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
 };
 
 export default function RootLayout({

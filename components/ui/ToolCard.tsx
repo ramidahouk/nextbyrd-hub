@@ -24,13 +24,13 @@ export default function ToolCard({ href, name, description, Icon, className }: T
       <Link
         href={href}
         className={cn(
-          "group flex flex-col gap-5 rounded-card bg-hub-surface p-7",
+          "group flex min-h-56 flex-col gap-5 rounded-card bg-white p-7",
           "border border-hub-border shadow-hub-subtle transition-all duration-200 hover:shadow-hub-standard hover:border-transparent",
           className,
         )}
       >
-        <div className="flex size-11 items-center justify-center rounded-card bg-white">
-          <Icon className="size-5 text-hub-aqua" />
+        <div className="flex size-11 items-center justify-center rounded-card bg-hub-surface">
+          <Icon className="size-6 text-hub-aqua" />
         </div>
         <div className="flex flex-col gap-2">
           <h3 className="text-base font-semibold text-hub-navy leading-snug">{name}</h3>

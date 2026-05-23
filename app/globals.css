@@ -62,7 +62,7 @@
 @theme inline {
   /* Colors */
   --color-hub-bg:         #ffffff;
-  --color-hub-surface:    #F6F5F4;
+  --color-hub-surface:    #fcfcfc;
   --color-hub-navy:       #0A1931;
   --color-hub-gray:       #615d59;
   --color-hub-muted:      #a39e98;
@@ -97,6 +97,20 @@
 /* ─── Base ────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+/* Kill browser auto-link injection (Chrome smart content detection) */
+button a,
+button a:visited,
+button a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none;
+}
+
+a:not([href]):not([class]) {
+  color: inherit;
+  text-decoration: none;
 }
 
 html {

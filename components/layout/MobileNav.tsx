@@ -8,19 +8,15 @@ import { cn } from "@/lib/utils";
 type MenuType = { href: string; id: number; label: string };
 
 const navItems: MenuType[] = [
-  { id: 1, href: "/website-cost-calculator", label: "Scope" },
-  { id: 2, href: "/website-builder-comparison", label: "Stack" },
-  { id: 3, href: "/website-speed-calculator", label: "Performance" },
-  { id: 4, href: "/website-grader", label: "Audit" },
+  { id: 1, href: "/website-cost-calculator", label: "Cost Calculator" },
+  { id: 2, href: "/website-builder-comparison", label: "Build Options" },
+  { id: 3, href: "/website-speed-calculator", label: "Speed Calculator" },
+  { id: 4, href: "/website-grader", label: "Website Grader" },
 ];
 
 export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -66,6 +62,7 @@ export default function MobileNav() {
             <li key={id}>
               <Link
                 href={href}
+                onClick={() => setOpen(false)}
                 className={cn(
                   "flex w-full items-center rounded-[8px] px-5 py-3 text-sm font-medium transition-colors duration-200 hover:bg-hub-surface hover:text-hub-aqua",
                   pathname === href

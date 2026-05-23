@@ -1,107 +1,111 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import ToolGrid from "@/components/ui/ToolGrid";
 import AdSlot from "@/components/ui/AdSlot";
 import SocialProof from "@/components/ui/SocialProof";
+import ToolGrid from "@/components/ui/ToolGrid";
 import ToolPreview from "@/components/ui/ToolPreview";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Website Tools for Business Owners — hub.nextbyrd.com",
+  title: "Free Website Tools: Cost Calculator, Website Grader, and Planning Tools",
   description:
-    "Answer a few questions. Get a clear answer. Free tools to scope your website, compare builders, measure performance, and audit your site. No sign-up.",
+    "Free tools to plan, audit, and improve your website. Starting from scratch or fixing what is not working, find your answer in minutes. No sign-up.",
+  alternates: { canonical: "https://hub.nextbyrd.com" },
   openGraph: {
-    title: "Free Website Tools for Business Owners — hub.nextbyrd.com",
+    title: "Free Website Tools: Cost Calculator, Website Grader, and Planning Tools",
     description:
-      "Answer a few questions. Get a clear answer. Free tools to scope your website, compare builders, measure performance, and audit your site.",
+      "Free tools to plan, audit, and improve your website. Starting from scratch or fixing what is not working, find your answer in minutes. No sign-up.",
     url: "https://hub.nextbyrd.com",
     siteName: "byrd hub",
     type: "website",
+    images: [{ url: "https://hub.nextbyrd.com/og.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Website Tools for Business Owners — hub.nextbyrd.com",
+    title: "Free Website Tools: Cost Calculator, Website Grader, and Planning Tools",
     description:
-      "Answer a few questions. Get a clear answer. Free tools for business owners with a website problem.",
+      "Free tools to plan, audit, and improve your website. Starting from scratch or fixing what is not working, find your answer in minutes. No sign-up.",
+    images: ["https://hub.nextbyrd.com/og.png"],
   },
 };
 
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="w-full bg-hub-surface border-b border-hub-border">
+      <section className="w-full border-b border-hub-border bg-hub-bg">
         <div
           className="mx-auto max-w-320 px-container"
-          style={{ paddingTop: "clamp(64px, 8vw, 120px)", paddingBottom: "clamp(64px, 8vw, 120px)" }}
+          style={{
+            paddingTop: "clamp(64px, 8vw, 112px)",
+            paddingBottom: "clamp(56px, 7vw, 96px)",
+          }}
         >
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
-            {/* Left — copy */}
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:items-center">
             <div className="flex flex-col gap-7">
-              {/* Eyebrow */}
-              <div className="flex items-center gap-3">
-                <span className="block w-0.5 h-4 bg-hub-aqua rounded-full" />
-                <span className="text-xs font-medium text-hub-aqua tracking-wide uppercase">
-                  Free · No sign-up · No email
-                </span>
-              </div>
               <h1
                 className="font-bold text-hub-navy"
-                style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", lineHeight: 1.1 }}
+                style={{
+                  fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+                  lineHeight: 1.1,
+                }}
               >
-                Free tools for business owners with a website problem
+                Free tools to plan, audit, and improve your website.
               </h1>
-              <p className="text-lg text-hub-gray" style={{ lineHeight: 1.6, maxWidth: "34rem" }}>
-                Answer a few questions. Get a clear answer.
+              <p
+                className="text-lg text-hub-gray"
+                style={{ lineHeight: 1.6, maxWidth: "34rem" }}
+              >
+                Starting from scratch or fixing what&apos;s not working? Find your answer in minutes. No sign-up.
               </p>
               <div>
                 <Link
                   href="/website-cost-calculator"
-                  className="inline-flex items-center gap-2 rounded-btn bg-hub-aqua px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-hub-aqua-dark"
+                  className="inline-flex w-full max-w-sm items-center justify-center rounded-btn bg-hub-aqua px-5 py-3.5 text-center text-sm font-semibold leading-5 text-white transition-colors duration-200 hover:bg-hub-aqua-dark sm:w-auto sm:max-w-none sm:px-6"
                 >
-                  Find out what your website should cost →
+                  See what your website needs →
                 </Link>
               </div>
               <SocialProof />
             </div>
 
-            {/* Right — ToolPreview (desktop only) */}
             <ToolPreview />
           </div>
         </div>
       </section>
 
-      {/* ── ToolGrid ─────────────────────────────────────────────── */}
-      <section className="w-full bg-hub-bg">
+      <section className="w-full bg-hub-surface">
         <div
           className="mx-auto max-w-320 px-container"
-          style={{ paddingTop: "clamp(56px, 7vw, 96px)", paddingBottom: "clamp(56px, 7vw, 96px)" }}
+          style={{
+            paddingTop: "clamp(48px, 6vw, 80px)",
+            paddingBottom: "clamp(56px, 7vw, 96px)",
+          }}
         >
-          <div className="mb-10">
+          <div className="mb-10 max-w-text">
             <h2
               className="font-semibold text-hub-navy"
               style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.2 }}
             >
-              Pick a tool
+              Free website tools
             </h2>
             <p className="mt-2 text-sm text-hub-gray">
-              Each tool takes under 2 minutes.
+              Each tool takes under 2 minutes. No sign-up.
             </p>
           </div>
           <ToolGrid />
         </div>
       </section>
 
-      {/* ── AdSlot ───────────────────────────────────────────────── */}
       <section className="w-full bg-hub-bg">
         <div
           className="mx-auto max-w-320 px-container"
-          style={{ paddingTop: "clamp(40px, 5vw, 64px)", paddingBottom: "clamp(40px, 5vw, 64px)" }}
+          style={{
+            paddingTop: "clamp(40px, 5vw, 64px)",
+            paddingBottom: "clamp(40px, 5vw, 64px)",
+          }}
         >
           <AdSlot zone="home-leaderboard" />
         </div>
       </section>
-
-      {/* BlogPreview — hidden until real content exists */}
     </>
   );
 }

@@ -2,10 +2,10 @@ import Link from "next/link";
 import ByrdLogo from "@/components/ui/ByrdLogo";
 
 const toolLinks = [
-  { href: "/website-cost-calculator", label: "Scope" },
-  { href: "/website-builder-comparison", label: "Stack" },
-  { href: "/website-speed-calculator", label: "Performance" },
-  { href: "/website-grader", label: "Audit" },
+  { href: "/website-cost-calculator", label: "Cost Calculator" },
+  { href: "/website-builder-comparison", label: "Build Options" },
+  { href: "/website-speed-calculator", label: "Speed Calculator" },
+  { href: "/website-grader", label: "Website Grader" },
 ];
 
 export default function HubFooter() {
