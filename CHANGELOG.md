@@ -7,6 +7,11 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ## 2026-05-24 - Launch docs sync
 
+- [Codex] Fix - Added homepage JSON-LD for Organization, WebSite, WebPage, and the visible homepage tool list
+- [Codex] Fix - Tuned the calculator FAQ for featured-snippet extraction with answer-first wording and a small-business cost question while keeping JSON-LD synced from the visible FAQ data
+- [Codex] Fix - Added BreadcrumbList JSON-LD to the Website Cost Calculator page for richer page hierarchy signals
+- [Codex] Fix - Added author, publisher, published/modified dates, and `og.png` image reference to the calculator page metadata/JSON-LD for E-E-A-T and citability validators
+- [Codex] Fix - Added FAQPage `name` and `description` JSON-LD fields, plus static `robots.txt` and `sitemap.xml` generation for crawler validation
 - [Codex] Fix - Synced the May 24 docs update: added Vercel Analytics as the passive analytics layer, corrected the Tool 1 header subline, and recorded the future backend abuse-prevention boundary in TODO
 - [Codex] Fix - Completed pre-deploy metadata asset pass: verified route metadata uses the shared `og.png`, added the missing OG image, regenerated it to avoid visual overlap, and cleaned the quiet `nextbyrd.com ->` footer/mobile links
 

@@ -1,28 +1,33 @@
 export const websiteCostFaqItems = [
   {
+    question: "How much does a small business website cost?",
+    answer:
+      "A small business website cost depends on country, functionality, design level, and who maintains the site after launch. A simple service website is usually the lower end of the range, while booking systems, e-commerce, customer accounts, multilingual content, and high-end design increase the cost.",
+  },
+  {
     question: "Why is there such a big price range?",
     answer:
-      "Because two websites that look similar on the surface can be completely different builds underneath. A showcase site with a contact form and a showcase site with online booking, a CMS, and multilingual support are not the same project. The range reflects the real spread across professional agencies in your market. The more specific your answers, the narrower the estimate gets.",
+      "Website price ranges are large because functionality, content management, booking, e-commerce, and design quality change the amount of work behind the site. Two websites can look similar on the surface but be completely different builds underneath. The range reflects the real spread across professional agencies in your market.",
   },
   {
     question: "Why not just use Wix or Squarespace?",
     answer:
-      "For a simple site that will not change much, a builder can work. The problem is what happens later. Wix, Squarespace, and Framer do not let you export your site. If you outgrow the platform or want custom functionality, you rebuild from scratch and lose your SEO history in the process. A custom build costs more upfront. You own the code, you own the hosting decision, and you are not locked into anyone's pricing.",
+      "Wix or Squarespace can work for a simple website that will not change much. The trade-off is lock-in: Wix, Squarespace, and Framer do not let you export your site. If you outgrow the platform or need custom functionality, moving usually means rebuilding from scratch. A custom build costs more upfront, but you own the code and hosting decision.",
   },
   {
-    question: "What does website maintenance actually cost?",
+    question: "How much does website maintenance cost per year?",
     answer:
-      "Most agencies charge between 1,200 and 6,000 euros per year for ongoing maintenance, depending on the complexity of the site and how often content changes. This covers security updates, plugin or dependency updates, small content edits, and performance monitoring. Some agencies bundle it into a monthly retainer. Others quote it separately. Always ask before signing.",
+      "Website maintenance usually costs between 1,200 and 6,000 euros per year for ongoing agency support, depending on site complexity and update frequency. This can cover security updates, plugin or dependency updates, small content edits, and performance monitoring. Some agencies bundle it into a monthly retainer. Others quote it separately.",
   },
   {
     question: "What is not included in a typical agency quote?",
     answer:
-      "Three things that almost always get quoted separately: copywriting, photography, and ongoing SEO content. Agencies build the structure, not the photos or the article strategy. For e-commerce sites, product photography is also separate. For client portals handling sensitive data, a third-party security audit is rarely included but strongly recommended.",
+      "Agency website quotes often exclude copywriting, photography, and ongoing SEO content. Agencies usually build the structure, not the photos or article strategy. For e-commerce sites, product photography is also separate. For client portals handling sensitive data, a third-party security audit is rarely included but strongly recommended.",
   },
   {
     question: "How do I know if my budget is realistic?",
     answer:
-      "The ranges in this tool come from real agency pricing data across France, the UK, the US, and the UAE in 2026. If your budget is below the floor for your project type, it does not mean it is impossible. It means you need to be upfront about it with any agency you speak with. Scope can be adjusted: fewer pages, a simpler CMS, phased delivery. A good agency will tell you what is achievable in your range instead of over-promising and under-delivering.",
+      "Your website budget is realistic if it matches the country, scope, and complexity of the site you need. The ranges in this tool come from agency pricing data across France, the UK, the US, and the UAE in 2026. If your budget is below the floor for your project type, scope can still be adjusted through fewer pages, a simpler CMS, or phased delivery.",
   },
   {
     question: "Does Nextbyrd build all these types of sites?",
@@ -34,6 +39,9 @@ export const websiteCostFaqItems = [
 export const websiteCostFaqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  name: "Website Cost Calculator common questions",
+  description:
+    "Answers to common questions about website pricing, maintenance, builders, budgets, and what agency quotes usually include.",
   mainEntity: websiteCostFaqItems.map((item) => ({
     "@type": "Question",
     name: item.question,

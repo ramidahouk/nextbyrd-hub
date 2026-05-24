@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "Free tools to plan, audit, and improve your website. Starting from scratch or fixing what is not working, find your answer in minutes. No sign-up.",
   metadataBase: new URL("https://hub.nextbyrd.com"),
+  authors: [{ name: "Nextbyrd", url: "https://nextbyrd.com" }],
+  creator: "Nextbyrd",
+  publisher: "Nextbyrd",
   formatDetection: {
     telephone: false,
     address: false,
