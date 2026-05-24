@@ -5,6 +5,11 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ---
 
+## 2026-05-24 - Launch docs sync
+
+- [Codex] Fix - Synced the May 24 docs update: added Vercel Analytics as the passive analytics layer, corrected the Tool 1 header subline, and recorded the future backend abuse-prevention boundary in TODO
+- [Codex] Fix - Completed pre-deploy metadata asset pass: verified route metadata uses the shared `og.png`, added the missing OG image, regenerated it to avoid visual overlap, and cleaned the quiet `nextbyrd.com ->` footer/mobile links
+
 ## 2026-05-23 - Tool 1 docs alignment
 
 - [Codex] QA - Completed final Tool 1 QA across desktop and 375px mobile, including adjusted result prices, FAQ + JSON-LD, reset, refresh persistence, edit flow clearing downstream answers, and mobile hiding the live estimate panel

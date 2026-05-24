@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import HubHeader from "@/components/layout/HubHeader";
 import HubFooter from "@/components/layout/HubFooter";
@@ -26,6 +27,7 @@ export default function RootLayout({
         <HubHeader />
         <main className="flex-1">{children}</main>
         <HubFooter />
+        <Analytics />
         {/* GA4 analytics placeholder — add measurement ID when property is created */}
       </body>
     </html>

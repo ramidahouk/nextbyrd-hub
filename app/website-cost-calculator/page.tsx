@@ -32,7 +32,7 @@ export default function WebsiteCostCalculatorPage() {
     <>
       <ToolPageHeader
         name="Website Cost Calculator"
-        description="Answer 5 questions. Find out what your website should cost. No sign-up."
+        description="Answer 5 questions. Get a clear price range for your small business website. No sign-up."
         Icon={ClipboardList}
       />
 

@@ -17,7 +17,7 @@ Ordered by priority. Update at the start and end of every session.
 - [x] Step 8 - Home page with Hero, ToolGrid, AdSlot placeholder, hidden BlogPreview [Sonnet 4.6]
 - [x] Step 9 - Tool page template and route placeholders [Sonnet 4.6]
 - [x] Step 10 - Design Library, Learn, Blog listing placeholders [Sonnet 4.6]
-- [ ] Step 11 - Verify metadata on every route
+- [x] Step 11 - Verify metadata on every route and add shared OG image asset
 - [ ] Step 12 - Deploy to Vercel, Lighthouse 90+ on mobile
 
 ## Tool 1 phase
@@ -34,3 +34,9 @@ Ordered by priority. Update at the start and end of every session.
 - [x] QA all states at 375px and desktop, including edit/reset and result panel
 - [x] Run lint and production build
 - [x] Tool 1 complete - Website Cost Calculator ready for launch review
+
+## Future backend/API tools
+
+- [ ] Before building Website Grader or Website Design Extractor, remove static export or create a separate API service
+- [ ] Add abuse prevention before any URL/API tool ships: rate limiting, per-URL cache, strict URL validation, private-network blocking, timeouts, kill switch, and abuse events
+- [ ] Keep Website Speed Calculator v1 static unless it later accepts URLs

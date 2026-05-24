@@ -38,16 +38,16 @@ export default function HubFooter() {
               href="https://nextbyrd.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-hub-aqua hover:text-hub-aqua-dark transition-colors"
+              className="text-sm font-medium text-hub-muted transition-colors hover:text-hub-gray"
             >
-              Built by Nextbyrd
+              nextbyrd.com &rarr;
             </Link>
           </nav>
         </div>
 
         {/* Row 2 — copyright */}
         <p className="mt-6 text-xs text-hub-muted">
-          © {new Date().getFullYear()} hub.nextbyrd.com
+          &copy; {new Date().getFullYear()} hub.nextbyrd.com
         </p>
       </div>
     </footer>

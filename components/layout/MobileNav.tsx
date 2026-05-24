@@ -81,9 +81,9 @@ export default function MobileNav() {
             href="https://nextbyrd.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-hub-aqua hover:text-hub-aqua-dark transition-colors"
+            className="text-sm font-medium text-hub-muted transition-colors hover:text-hub-gray"
           >
-            Built by Nextbyrd →
+            nextbyrd.com &rarr;
           </Link>
         </div>
       </nav>
