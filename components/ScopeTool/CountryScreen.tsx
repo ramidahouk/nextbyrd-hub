@@ -42,7 +42,7 @@ export default function CountryScreen({
               className={cn(
                 "min-h-13 rounded-btn border px-5 py-4 text-left text-sm font-medium transition-all duration-200",
                 isSelected
-                  ? "border-hub-aqua bg-[rgba(5,142,173,0.08)] text-hub-navy"
+                  ? "border-hub-aqua bg-[rgba(4,127,155,0.08)] text-hub-navy"
                   : "border-hub-border bg-hub-surface text-hub-navy hover:border-hub-aqua/50",
               )}
             >

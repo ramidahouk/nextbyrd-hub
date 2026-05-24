@@ -33,9 +33,9 @@ export default function QuestionCard({
       </div>
       <div className="p-5 sm:p-6">
         <p className="text-xs font-medium text-hub-muted">{stepLabel}</p>
-        <h3 className="mt-3 text-base font-semibold leading-snug text-hub-navy">
+        <p className="mt-3 text-base font-semibold leading-snug text-hub-navy">
           {question}
-        </h3>
+        </p>
         <div className="mt-5 grid gap-2">
           {options.map(({ label, Icon }) => (
             <div

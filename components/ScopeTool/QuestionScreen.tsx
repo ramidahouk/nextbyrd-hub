@@ -57,8 +57,8 @@ export default function QuestionScreen({
               className={cn(
                 "flex min-h-13 w-full items-center gap-3 rounded-btn border px-5 py-4 text-left text-sm font-medium transition-all duration-200",
                 isSelected
-                  ? "border-hub-aqua bg-[rgba(5,142,173,0.08)] text-hub-navy"
-                  : "border-hub-border bg-hub-surface text-hub-navy hover:border-hub-aqua/50 hover:bg-[rgba(5,142,173,0.04)]",
+                  ? "border-hub-aqua bg-[rgba(4,127,155,0.08)] text-hub-navy"
+                  : "border-hub-border bg-hub-surface text-hub-navy hover:border-hub-aqua/50 hover:bg-[rgba(4,127,155,0.04)]",
                 selected && !isSelected && "pointer-events-none opacity-35",
               )}
             >
