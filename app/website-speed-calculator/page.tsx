@@ -4,12 +4,12 @@ import ToolPageHeader from "@/components/layout/ToolPageHeader";
 import ComingSoon from "@/components/ui/ComingSoon";
 
 export const metadata: Metadata = {
-  title: "Website Speed Calculator — hub.nextbyrd.com",
+  title: "Website Speed Calculator - hub.nextbyrd.com",
   description:
     "See how your site speed affects bounce rate and conversions. Free calculator for business owners.",
   alternates: { canonical: "https://hub.nextbyrd.com/website-speed-calculator" },
   openGraph: {
-    title: "Website Speed Calculator — hub.nextbyrd.com",
+    title: "Website Speed Calculator - hub.nextbyrd.com",
     description:
       "See how your site speed affects bounce rate and conversions. Free calculator for business owners.",
     url: "https://hub.nextbyrd.com/website-speed-calculator",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Website Speed Calculator — hub.nextbyrd.com",
+    title: "Website Speed Calculator - hub.nextbyrd.com",
     description:
       "See how your site speed affects bounce rate and conversions. Free calculator for business owners.",
     images: ["https://hub.nextbyrd.com/og.png"],

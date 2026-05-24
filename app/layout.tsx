@@ -31,7 +31,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <HubFooter />
         <Analytics />
-        {/* GA4 analytics placeholder — add measurement ID when property is created */}
+        {/* GA4 analytics placeholder - add measurement ID when property is created */}
       </body>
     </html>
   );

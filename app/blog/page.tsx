@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog — hub.nextbyrd.com",
+  title: "Blog - hub.nextbyrd.com",
   description: "Guides and articles for business owners building or improving their web presence.",
   alternates: { canonical: "https://hub.nextbyrd.com/blog" },
   openGraph: {
-    title: "Blog — hub.nextbyrd.com",
+    title: "Blog - hub.nextbyrd.com",
     description: "Guides and articles for business owners building or improving their web presence.",
     url: "https://hub.nextbyrd.com/blog",
     siteName: "byrd hub",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — hub.nextbyrd.com",
+    title: "Blog - hub.nextbyrd.com",
     description: "Guides and articles for business owners building or improving their web presence.",
     images: ["https://hub.nextbyrd.com/og.png"],
   },

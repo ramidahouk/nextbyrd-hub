@@ -3,13 +3,13 @@ import ByrdLogo from "@/components/ui/ByrdLogo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page not found — hub.nextbyrd.com",
+  title: "Page not found - hub.nextbyrd.com",
 };
 
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-container text-center">
-      <Link href="/" className="mb-10 hover:opacity-80 transition-opacity" aria-label="byrd hub — home">
+      <Link href="/" className="mb-10 hover:opacity-80 transition-opacity" aria-label="byrd hub home">
         <ByrdLogo className="h-6 text-hub-navy" />
       </Link>
       <p className="text-sm font-medium text-hub-muted mb-2">404</p>

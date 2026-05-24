@@ -4,12 +4,12 @@ import ToolPageHeader from "@/components/layout/ToolPageHeader";
 import ComingSoon from "@/components/ui/ComingSoon";
 
 export const metadata: Metadata = {
-  title: "Free Website Grader — hub.nextbyrd.com",
+  title: "Free Website Grader - hub.nextbyrd.com",
   description:
     "Get a free technical audit of your website. Enter your URL and see what is holding your site back.",
   alternates: { canonical: "https://hub.nextbyrd.com/website-grader" },
   openGraph: {
-    title: "Free Website Grader — hub.nextbyrd.com",
+    title: "Free Website Grader - hub.nextbyrd.com",
     description:
       "Get a free technical audit of your website. Enter your URL and see what is holding your site back.",
     url: "https://hub.nextbyrd.com/website-grader",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Website Grader — hub.nextbyrd.com",
+    title: "Free Website Grader - hub.nextbyrd.com",
     description:
       "Get a free technical audit of your website. Enter your URL and see what is holding your site back.",
     images: ["https://hub.nextbyrd.com/og.png"],

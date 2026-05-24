@@ -5,7 +5,7 @@ import FaqShell, { websiteCostFaqJsonLd } from "@/components/ui/FaqShell";
 import ScopeTool from "@/components/ScopeTool";
 
 export const metadata: Metadata = {
-  title: "Website Cost Calculator — hub.nextbyrd.com",
+  title: "Website Cost Calculator - hub.nextbyrd.com",
   description:
     "Find out what kind of website your business needs and what it should cost. 5 questions, under a minute, no sign-up.",
   authors: [{ name: "Nextbyrd", url: "https://nextbyrd.com" }],
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   publisher: "Nextbyrd",
   alternates: { canonical: "https://hub.nextbyrd.com/website-cost-calculator" },
   openGraph: {
-    title: "Website Cost Calculator — hub.nextbyrd.com",
+    title: "Website Cost Calculator - hub.nextbyrd.com",
     description:
       "Find out what kind of website your business needs and what it should cost. 5 questions, under a minute, no sign-up.",
     url: "https://hub.nextbyrd.com/website-cost-calculator",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Website Cost Calculator — hub.nextbyrd.com",
+    title: "Website Cost Calculator - hub.nextbyrd.com",
     description:
       "Find out what kind of website your business needs and what it should cost. 5 questions, under a minute, no sign-up.",
     images: ["https://hub.nextbyrd.com/og.png"],

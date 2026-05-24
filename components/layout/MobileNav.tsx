@@ -1,26 +1,64 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import {
+  BarChart2,
+  ChevronDown,
+  ClipboardList,
+  Layers,
+  Menu,
+  Search,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type MenuType = { href: string; id: number; label: string };
+type ToolItem = {
+  href: string;
+  label: string;
+  Icon: LucideIcon;
+  status: "live" | "soon";
+};
 
-const navItems: MenuType[] = [
-  { id: 1, href: "/website-cost-calculator", label: "Cost Calculator" },
-  { id: 2, href: "/website-builder-comparison", label: "Build Options" },
-  { id: 3, href: "/website-speed-calculator", label: "Speed Calculator" },
-  { id: 4, href: "/website-grader", label: "Website Grader" },
+const toolItems: ToolItem[] = [
+  {
+    href: "/website-cost-calculator",
+    label: "Cost Calculator",
+    Icon: ClipboardList,
+    status: "live",
+  },
+  {
+    href: "/website-builder-comparison",
+    label: "Build Options",
+    Icon: Layers,
+    status: "soon",
+  },
+  {
+    href: "/website-speed-calculator",
+    label: "Speed Calculator",
+    Icon: BarChart2,
+    status: "soon",
+  },
+  {
+    href: "/website-grader",
+    label: "Website Grader",
+    Icon: Search,
+    status: "soon",
+  },
 ];
 
 export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -33,16 +71,14 @@ export default function MobileNav() {
         <Menu className="size-6" />
       </button>
 
-      {/* Overlay */}
       <div
         onClick={() => setOpen(false)}
         className={cn(
           "fixed inset-0 z-50 bg-black/50 transition-opacity duration-300",
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       />
 
-      {/* Drawer */}
       <nav
         className={cn(
           "fixed top-0 right-0 z-999 flex h-full w-full max-w-85 flex-col bg-white px-3 pt-7 pb-6 shadow-lg transition-transform duration-500",
@@ -57,24 +93,54 @@ export default function MobileNav() {
           <X className="size-5" />
         </button>
 
-        <ul className="mt-8 flex flex-col gap-1">
-          {navItems.map(({ href, id, label }) => (
-            <li key={id}>
-              <Link
-                href={href}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "flex w-full items-center rounded-[8px] px-5 py-3 text-sm font-medium transition-colors duration-200 hover:bg-hub-surface hover:text-hub-aqua",
-                  pathname === href
-                    ? "bg-hub-surface text-hub-aqua"
-                    : "text-hub-navy",
-                )}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-8 flex flex-col gap-1">
+          <button
+            type="button"
+            onClick={() => setToolsOpen((current) => !current)}
+            aria-expanded={toolsOpen}
+            className="flex w-full items-center justify-between rounded-card px-5 py-3 text-left text-sm font-semibold text-hub-navy transition-colors hover:bg-hub-surface hover:text-hub-aqua"
+          >
+            <span>Tools</span>
+            <ChevronDown
+              className={cn(
+                "size-4 transition-transform duration-200",
+                toolsOpen && "rotate-180",
+              )}
+            />
+          </button>
+
+          {toolsOpen ? (
+            <ul className="flex flex-col gap-1 pl-3">
+              {toolItems.map(({ href, label, Icon, status }) => (
+                <li key={href}>
+                  {status === "live" ? (
+                    <Link
+                      href={href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
+                        pathname === href
+                          ? "bg-hub-surface text-hub-aqua"
+                          : "text-hub-navy",
+                      )}
+                    >
+                      <Icon className="size-4 shrink-0" aria-hidden="true" />
+                      <span>{label}</span>
+                    </Link>
+                  ) : (
+                    <div className="flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium text-hub-muted">
+                      <Icon className="size-4 shrink-0" aria-hidden="true" />
+                      <span>{label}</span>
+                      <span className="ml-auto rounded-badge bg-hub-surface px-2 py-0.5 text-[11px] font-medium text-hub-muted">
+                        Soon
+                      </span>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
 
         <div className="mt-auto border-t border-hub-border pt-5">
           <Link

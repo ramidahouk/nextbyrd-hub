@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 
 interface ProgressBarProps {
-  step: number; // 1–5
+  step: number; // 1-5
   pulse?: boolean; // true during the 800ms calculating pause
 }
 

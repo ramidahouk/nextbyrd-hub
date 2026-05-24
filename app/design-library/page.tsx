@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Design Library — hub.nextbyrd.com",
+  title: "Design Library - hub.nextbyrd.com",
   description:
     "Implementation-ready DESIGN.md files for sites worth studying. Tokens, rationale, and the why behind every decision.",
   alternates: { canonical: "https://hub.nextbyrd.com/design-library" },
   openGraph: {
-    title: "Design Library — hub.nextbyrd.com",
+    title: "Design Library - hub.nextbyrd.com",
     description:
       "Implementation-ready DESIGN.md files for sites worth studying. Tokens, rationale, and the why behind every decision.",
     url: "https://hub.nextbyrd.com/design-library",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Design Library — hub.nextbyrd.com",
+    title: "Design Library - hub.nextbyrd.com",
     description:
       "Implementation-ready DESIGN.md files for sites worth studying. Tokens, rationale, and the why behind every decision.",
     images: ["https://hub.nextbyrd.com/og.png"],

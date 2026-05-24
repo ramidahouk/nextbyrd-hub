@@ -7,6 +7,7 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ## 2026-05-24 - Launch docs sync
 
+- [Codex] Fix - Synced launch navigation with the latest docs: desktop now uses a Tools dropdown, mobile uses an expandable Tools group, planned tools are marked coming soon, and footer links only promote live launch destinations
 - [Codex] Fix - Resolved Lighthouse accessibility warnings by raising muted/aqua contrast and removing the decorative homepage preview card from the heading outline
 - [Codex] Fix - Added homepage JSON-LD for Organization, WebSite, WebPage, and the visible homepage tool list
 - [Codex] Fix - Tuned the calculator FAQ for featured-snippet extraction with answer-first wording and a small-business cost question while keeping JSON-LD synced from the visible FAQ data
