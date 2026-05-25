@@ -5,6 +5,12 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ---
 
+## 2026-05-25 - Favicon + deploy
+
+- [Codex] Fix - Copied Nextbyrd light-mode favicon set from rdstudio: `favicon.ico` and `apple-icon.png` in `app/` (auto-detected by Next.js App Router), PNG variants (16×16, 32×32, 192×192, 512×512) in `public/`, all wired via `icons` in root `layout.tsx` metadata
+- [Codex] Deploy - Blog 1 layout fixes deployed to Vercel and live on hub.nextbyrd.com; sitemap `lastModified` bumped to 2026-05-25
+- [Codex] Fix - Submitted sitemap and requested indexing for `/` and `/website-cost-calculator` in Google Search Console
+
 ## 2026-05-25 - Blog 1 layout fixes
 
 - [Codex] Fix - Centered all blog layout columns: breadcrumb, date/author line, title, description, and body now all share the same `max-w-3xl mx-auto` centered column in `BlogLayout.tsx`
