@@ -1,8 +1,13 @@
-declare function gtag(command: "event", action: string, params: Record<string, unknown>): void;
+declare global {
+  interface Window {
+    __nbHubAnalyticsConsent?: boolean;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 export function track(event: string, params: Record<string, unknown> = {}): void {
   if (typeof window === "undefined") return;
-  if (typeof gtag !== "undefined") {
-    gtag("event", event, params);
+  if (window.__nbHubAnalyticsConsent === true && typeof window.gtag === "function") {
+    window.gtag("event", event, params);
   }
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 import HubHeader from "@/components/layout/HubHeader";
 import HubFooter from "@/components/layout/HubFooter";
+import CookieConsent from "@/components/layout/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Free Website Tools: Cost Calculator, Website Grader, and Planning Tools",
@@ -35,12 +37,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        {/* GA4 Consent Mode default — must fire before gtag.js loads */}
+        <Script id="ga4-consent-default" strategy="beforeInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied'
+          });
+        `}</Script>
+      </head>
       <body className="font-sans min-h-full flex flex-col bg-hub-bg text-hub-navy antialiased">
         <HubHeader />
         <main className="flex-1">{children}</main>
         <HubFooter />
+        <CookieConsent />
         <Analytics />
-        {/* GA4 analytics placeholder - add measurement ID when property is created */}
       </body>
     </html>
   );

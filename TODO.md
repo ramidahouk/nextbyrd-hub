@@ -43,6 +43,16 @@ Ordered by priority. Update at the start and end of every session.
 - [x] Sitemap updated to include blog post [Codex]
 - [ ] Cross-post Blog 1 to Medium with canonical pointing to hub.nextbyrd.com
 
+## Consent + GA4 phase
+
+- [x] Privacy policy page at `/privacy` [Codex]
+- [x] `CookieConsent` component with `nb_hub_consent` cookie, Consent Mode v2 default denied, grant `analytics_storage` only on accept [Codex]
+- [x] `CookiePreferencesLink` component — fires `nb:open-cookie-preferences` event [Codex]
+- [x] GA4 Measurement ID `G-BTX14DFH1B` wired; gtag consent default stub in `<head>` via `next/script` beforeInteractive [Codex]
+- [x] Privacy Policy + Cookie preferences links added to HubFooter [Codex]
+- [ ] Verify consent flow with Google Tag Assistant after deploy
+- [ ] Decide on Google-certified CMP / TCF-compatible solution before AdSense application (EEA/UK/CH traffic)
+
 ## Future backend/API tools
 
 - [ ] Before building Website Grader or Website Design Extractor, remove static export or create a separate API service

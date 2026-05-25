@@ -95,7 +95,7 @@ export function BlogAuthorBio() {
         >
           Nextbyrd
         </a>{" "}
-        team — a web design and development studio building performance-first websites for businesses
+        team - a web design and development studio building performance-first websites for businesses
         in France, the UK, the UAE, and the US.
       </p>
     </div>

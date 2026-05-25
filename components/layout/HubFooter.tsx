@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ByrdLogo from "@/components/ui/ByrdLogo";
+import CookiePreferencesLink from "@/components/layout/CookiePreferencesLink";
 
 const toolLinks = [
   { href: "/website-cost-calculator", label: "Cost Calculator" },
@@ -37,10 +38,16 @@ export default function HubFooter() {
           </nav>
         </div>
 
-        {/* Row 2 - copyright */}
-        <p className="mt-6 text-xs text-hub-muted">
-          &copy; {new Date().getFullYear()} hub.nextbyrd.com
-        </p>
+        {/* Row 2 - copyright + legal */}
+        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <p className="text-xs text-hub-muted">
+            &copy; {new Date().getFullYear()} hub.nextbyrd.com
+          </p>
+          <Link href="/privacy" className="text-xs text-hub-muted hover:text-hub-gray transition-colors">
+            Privacy Policy
+          </Link>
+          <CookiePreferencesLink className="text-xs text-hub-muted hover:text-hub-gray transition-colors" />
+        </div>
       </div>
     </footer>
   );

@@ -3,28 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ClipboardList, BookOpen, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const liveNavItems = [
-  {
-    href: "/website-cost-calculator",
-    label: "Cost Calculator",
-    Icon: ClipboardList,
-  },
-  {
-    href: "/blog",
-    label: "Blog",
-    Icon: BookOpen,
-  },
+  { href: "/website-cost-calculator", label: "Cost Calculator" },
+  { href: "/blog", label: "Blog" },
 ];
 
-const upcomingNavItems = [
-  {
-    href: "/design-library",
-    label: "Design Library",
-  },
-];
+const upcomingNavItems: { href: string; label: string }[] = [];
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -70,20 +57,19 @@ export default function MobileNav() {
         </button>
 
         <ul className="mt-8 flex flex-col gap-1">
-          {liveNavItems.map(({ href, label, Icon }) => (
+          {liveNavItems.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
+                  "flex w-full items-center rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
                   pathname === href
                     ? "bg-hub-surface text-hub-aqua"
                     : "text-hub-navy",
                 )}
               >
-                <Icon className="size-4 shrink-0" aria-hidden="true" />
-                <span>{label}</span>
+                {label}
               </Link>
             </li>
           ))}

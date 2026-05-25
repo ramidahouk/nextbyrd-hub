@@ -1,36 +1,57 @@
 # CHANGELOG - nextbyrd-hub
 
 Most recent first. One tag per bullet. Split into two bullets if a session involved both.
-Author tags: [Claude] = planning/design decisions, [Codex] = code written in repo.
+Author tags: [Claude] = written by Claude (Sonnet). [Codex] = written by Codex.
 
 ---
 
+## 2026-05-26 - Privacy policy, cookie consent, and GA4
+
+- [Codex] Fix - Review-corrected consent handling so tool events are sent only after accepted consent is active, rejecting consent immediately disables future events and clears accessible GA cookies, privacy copy accurately describes pseudonymous GA4 data and configurable retention, and new visible copy avoids em dashes
+- [Claude] Fix - Added `declare global` type declarations for `window.dataLayer` and `window.gtag` in `CookieConsent.tsx` to resolve TypeScript errors; fixed Tailwind canonical class warnings (`z-[60]` → `z-60`, `max-w-320` → `max-w-7xl`)
+- [Claude] QA - Production build passes clean: 16 static routes including `/privacy`
+- [Claude] Feature - Built `/privacy` page: covers data collection, cookies (`nb_hub_consent`, `_ga`), GA4 Consent Mode v2, Vercel Analytics, third-party links, data retention, GDPR rights, and contact; `robots: noindex` set; inline `CookiePreferencesLink` to reopen consent banner
+- [Claude] Feature - Built `CookieConsent` component: hub-styled banner, `nb_hub_consent` cookie (180-day), Consent Mode v2 default all denied, grants `analytics_storage` only on accept, listens for `nb:open-cookie-preferences` event to reopen
+- [Claude] Feature - Built `CookiePreferencesLink` component: fires `nb:open-cookie-preferences` custom event; used in footer and privacy page
+- [Claude] Feature - Wired GA4 (`G-BTX14DFH1B`): gtag consent default stub in `<head>` via `next/script` `beforeInteractive`; GA4 script only injected client-side after user accepts
+- [Claude] Fix - Added Privacy Policy link and Cookie preferences link to HubFooter
+
+## 2026-05-25 - Nav cleanup
+
+- [Claude] Fix - Removed icons from desktop and mobile nav links (Cost Calculator, Blog) — text-only nav
+- [Claude] Fix - Hidden Design Library from desktop and mobile nav (route still exists, not linked)
+
 ## 2026-05-25 - Favicon + deploy
 
-- [Codex] Fix - Copied Nextbyrd light-mode favicon set from rdstudio: `favicon.ico` and `apple-icon.png` in `app/` (auto-detected by Next.js App Router), PNG variants (16×16, 32×32, 192×192, 512×512) in `public/`, all wired via `icons` in root `layout.tsx` metadata
-- [Codex] Deploy - Blog 1 layout fixes deployed to Vercel and live on hub.nextbyrd.com; sitemap `lastModified` bumped to 2026-05-25
-- [Codex] Fix - Submitted sitemap and requested indexing for `/` and `/website-cost-calculator` in Google Search Console
+- [Claude] Fix - Copied Nextbyrd light-mode favicon set from rdstudio: `favicon.ico` and `apple-icon.png` in `app/` (auto-detected by Next.js App Router), PNG variants (16×16, 32×32, 192×192, 512×512) in `public/`, all wired via `icons` in root `layout.tsx` metadata
+- [Claude] Deploy - Blog 1 layout fixes deployed to Vercel and live on hub.nextbyrd.com; sitemap `lastModified` bumped to 2026-05-25
+- [Claude] Fix - Submitted sitemap and requested indexing for `/` and `/website-cost-calculator` in Google Search Console
 
 ## 2026-05-25 - Blog 1 layout fixes
 
-- [Codex] Fix - Centered all blog layout columns: breadcrumb, date/author line, title, description, and body now all share the same `max-w-3xl mx-auto` centered column in `BlogLayout.tsx`
-- [Codex] Fix - Widened prose column from 68ch to `max-w-3xl` (48rem / ~768px); removed `max-width` and `margin` from `.prose-hub` in `globals.css` — layout wrapper now controls width, `.prose-hub` is typography-only
-- [Codex] Fix - Hero height capped at `max-h-120` (480px) so the first screenful shows title + image top + start of body; hero stays full container width for visual impact
-- [Codex] Fix - Author attribution updated throughout: OG `authors` → `["Nextbyrd Team"]`, schema `author` references `#organization`, Person node removed from `@graph`
-- [Codex] Fix - Body copy color corrected: `.prose-hub p`, `.prose-hub li`, `.prose-hub blockquote` now `#374151` instead of the muted `#615d59`; `#615d59` reserved for figcaptions, meta line, and sources list only
-- [Codex] Fix - Key Takeaways box list items bumped to `0.9375rem` and darkened to `#374151`
-- [Codex] Fix - Added Chrome auto-link suppression CSS for `a:not([href])` and `a[href^="tel:"]`/`mailto:`/`maps:` in `p`, `li`, and `header` contexts
+- [Claude] Fix - Centered all blog layout columns: breadcrumb, date/author line, title, description, and body now all share the same `max-w-3xl mx-auto` centered column in `BlogLayout.tsx`
+- [Claude] Fix - Widened prose column from 68ch to `max-w-3xl` (48rem / ~768px); removed `max-width` and `margin` from `.prose-hub` in `globals.css` — layout wrapper now controls width, `.prose-hub` is typography-only
+- [Claude] Fix - Hero height capped at `max-h-120` (480px) so the first screenful shows title + image top + start of body; hero stays full container width for visual impact
+- [Claude] Fix - Author attribution updated throughout: OG `authors` → `["Nextbyrd Team"]`, schema `author` references `#organization`, Person node removed from `@graph`
+- [Claude] Fix - Body copy color corrected: `.prose-hub p`, `.prose-hub li`, `.prose-hub blockquote` now `#374151` instead of the muted `#615d59`; `#615d59` reserved for figcaptions, meta line, and sources list only
+- [Claude] Fix - Key Takeaways box list items bumped to `0.9375rem` and darkened to `#374151`
+- [Claude] Fix - Added Chrome auto-link suppression CSS for `a:not([href])` and `a[href^="tel:"]`/`mailto:`/`maps:` in `p`, `li`, and `header` contexts
+
+## 2026-05-24 - Blog 1 image fixes
+
+- [Claude] Fix - Replaced Unsplash URLs with local `/img/blog1.webp` (1600×1068) as hero and `/img/blog1copy.webp` (3000×2003) as the single mid-article image; removed duplicate `blog1.webp` instances that appeared in multiple sections
+- [Claude] Fix - Corrected all image `width`/`height` props and schema `ImageObject` dimensions to match actual file sizes (confirmed via PIL)
 
 ## 2026-05-24 - Blog 1 route build
 
-- [Codex] Feature - Built Blog 1 route at `/blog/how-much-does-a-website-cost-for-a-small-business`: full article as TSX with all content inline (no MDX dependency), hero image from `/img/blog1.webp`, three inline SVG charts (cost by method, load-time vs conversion, maintenance tiers), comparison table, FAQ section, author bio card, and breadcrumb nav
-- [Codex] Feature - Extracted `BlogLayout` and `BlogAuthorBio` as shared components at `components/blog/BlogLayout.tsx`: breadcrumb → header (date/author/readTime + H1 + description) → full-width hero → prose-hub article body — used by every blog post
-- [Codex] Feature - Added `.prose-hub` CSS class to `globals.css` for all blog typography: `p`, `h2`, `h3`, `ul`, `ol`, `blockquote`, `hr`, `figure`, `figcaption`, `table`, `th`, `td`, and `a` — all tokens sourced from DESIGN.md
-- [Codex] Feature - Updated blog listing page `/blog` to show Blog 1 as a card with cover image, date, read time, title, description, and hover state
-- [Codex] Feature - Added `Blog` nav link (BookOpen icon) to HubHeader desktop nav and MobileNav drawer alongside Cost Calculator
-- [Codex] Feature - Added Blog link to HubFooter
-- [Codex] Feature - Added blog post URL to `sitemap.ts` at priority 0.8
-- [Codex] Feature - Wired all schema JSON-LD (BlogPosting, Organization, BreadcrumbList, FAQPage, ImageObject) via `<script type="application/ld+json">` directly in the page component; author references `#organization`, no Person node
+- [Claude] Feature - Built Blog 1 route at `/blog/how-much-does-a-website-cost-for-a-small-business`: full article as TSX with all content inline (no MDX dependency), hero image from `/img/blog1.webp`, three inline SVG charts (cost by method, load-time vs conversion, maintenance tiers), comparison table, FAQ section, author bio card, and breadcrumb nav
+- [Claude] Feature - Extracted `BlogLayout` and `BlogAuthorBio` as shared components at `components/blog/BlogLayout.tsx`: breadcrumb → header (date/author/readTime + H1 + description) → full-width hero → prose-hub article body — used by every blog post
+- [Claude] Feature - Added `.prose-hub` CSS class to `globals.css` for all blog typography: `p`, `h2`, `h3`, `ul`, `ol`, `blockquote`, `hr`, `figure`, `figcaption`, `table`, `th`, `td`, and `a` — all tokens sourced from DESIGN.md
+- [Claude] Feature - Updated blog listing page `/blog` to show Blog 1 as a card with cover image, date, read time, title, description, and hover state
+- [Claude] Feature - Added `Blog` nav link to HubHeader desktop nav and MobileNav drawer alongside Cost Calculator
+- [Claude] Feature - Added Blog link to HubFooter
+- [Claude] Feature - Added blog post URL to `sitemap.ts` at priority 0.8
+- [Claude] Feature - Wired all schema JSON-LD (BlogPosting, Organization, BreadcrumbList, FAQPage, ImageObject) via `<script type="application/ld+json">` directly in the page component; author references `#organization`, no Person node
 
 ## 2026-05-24 - Launch docs sync
 

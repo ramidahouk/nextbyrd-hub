@@ -2,30 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ClipboardList, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import MobileNav from "./MobileNav";
 import ByrdLogo from "@/components/ui/ByrdLogo";
 
 const liveNavItems = [
-  {
-    href: "/website-cost-calculator",
-    label: "Cost Calculator",
-    Icon: ClipboardList,
-  },
-  {
-    href: "/blog",
-    label: "Blog",
-    Icon: BookOpen,
-  },
+  { href: "/website-cost-calculator", label: "Cost Calculator" },
+  { href: "/blog", label: "Blog" },
 ];
 
-const upcomingNavItems = [
-  {
-    href: "/design-library",
-    label: "Design Library",
-  },
-];
+const upcomingNavItems: { href: string; label: string }[] = [];
 
 export default function HubHeader() {
   const pathname = usePathname();
@@ -42,18 +28,17 @@ export default function HubHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 xl:flex">
-          {liveNavItems.map(({ href, label, Icon }) => (
+          {liveNavItems.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               className={cn(
-                "relative flex items-center gap-1.5 py-1 text-sm font-medium transition-colors duration-200 hover:text-hub-aqua",
+                "relative py-1 text-sm font-medium transition-colors duration-200 hover:text-hub-aqua",
                 pathname === href
                   ? "text-hub-aqua after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-hub-aqua"
                   : "text-hub-navy",
               )}
             >
-              <Icon className="size-3.5 shrink-0" aria-hidden="true" />
               {label}
             </Link>
           ))}
