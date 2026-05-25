@@ -3,6 +3,7 @@ import ByrdLogo from "@/components/ui/ByrdLogo";
 
 const toolLinks = [
   { href: "/website-cost-calculator", label: "Cost Calculator" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function HubFooter() {

@@ -18,7 +18,7 @@ Ordered by priority. Update at the start and end of every session.
 - [x] Step 9 - Tool page template and route placeholders [Sonnet 4.6]
 - [x] Step 10 - Design Library, Learn, Blog listing placeholders [Sonnet 4.6]
 - [x] Step 11 - Verify metadata on every route and add shared OG image asset
-- [ ] Step 12 - Deploy to Vercel, Lighthouse 90+ on mobile
+- [x] Step 12 - Deploy to Vercel, Lighthouse 90+ on mobile
 
 ## Tool 1 phase
 
@@ -34,6 +34,14 @@ Ordered by priority. Update at the start and end of every session.
 - [x] QA all states at 375px and desktop, including edit/reset and result panel
 - [x] Run lint and production build
 - [x] Tool 1 complete - Website Cost Calculator ready for launch review
+
+## Blog phase
+
+- [x] Blog 1 route built: `/blog/how-much-does-a-website-cost-for-a-small-business` [Codex]
+- [x] Blog listing page `/blog` live with Blog 1 card [Codex]
+- [x] Nav updated: Cost Calculator + Blog live links [Codex]
+- [x] Sitemap updated to include blog post [Codex]
+- [ ] Cross-post Blog 1 to Medium with canonical pointing to hub.nextbyrd.com
 
 ## Future backend/API tools
 

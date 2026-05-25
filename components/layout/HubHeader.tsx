@@ -2,53 +2,33 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  BarChart2,
-  ChevronDown,
-  ClipboardList,
-  Layers,
-  Search,
-  type LucideIcon,
-} from "lucide-react";
+import { ClipboardList, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import MobileNav from "./MobileNav";
 import ByrdLogo from "@/components/ui/ByrdLogo";
 
-const toolItems: {
-  href: string;
-  label: string;
-  Icon: LucideIcon;
-  status: "live" | "soon";
-}[] = [
+const liveNavItems = [
   {
     href: "/website-cost-calculator",
     label: "Cost Calculator",
     Icon: ClipboardList,
-    status: "live",
   },
   {
-    href: "/website-builder-comparison",
-    label: "Build Options",
-    Icon: Layers,
-    status: "soon",
+    href: "/blog",
+    label: "Blog",
+    Icon: BookOpen,
   },
+];
+
+const upcomingNavItems = [
   {
-    href: "/website-speed-calculator",
-    label: "Speed Calculator",
-    Icon: BarChart2,
-    status: "soon",
-  },
-  {
-    href: "/website-grader",
-    label: "Website Grader",
-    Icon: Search,
-    status: "soon",
+    href: "/design-library",
+    label: "Design Library",
   },
 ];
 
 export default function HubHeader() {
   const pathname = usePathname();
-  const isToolPath = toolItems.some((item) => pathname === item.href);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-hub-border bg-white">
@@ -62,52 +42,38 @@ export default function HubHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 xl:flex">
-          <details className="group relative">
-            <summary
+          {liveNavItems.map(({ href, label, Icon }) => (
+            <Link
+              key={href}
+              href={href}
               className={cn(
-                "relative flex cursor-pointer list-none items-center gap-1.5 py-1 text-sm font-medium transition-colors duration-200 marker:hidden hover:text-hub-aqua [&::-webkit-details-marker]:hidden",
-                isToolPath
+                "relative flex items-center gap-1.5 py-1 text-sm font-medium transition-colors duration-200 hover:text-hub-aqua",
+                pathname === href
                   ? "text-hub-aqua after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-hub-aqua"
                   : "text-hub-navy",
               )}
             >
-              Tools
-              <ChevronDown className="size-3.5 shrink-0 transition-transform duration-200 group-open:rotate-180" />
-            </summary>
-
-            <div className="absolute left-1/2 top-full mt-3 w-80 -translate-x-1/2 rounded-card border border-hub-border bg-white p-2 shadow-hub-standard">
-              <div className="flex flex-col gap-1">
-                {toolItems.map(({ href, label, Icon, status }) =>
-                  status === "live" ? (
-                    <Link
-                      key={href}
-                      href={href}
-                      className={cn(
-                        "flex items-center gap-3 rounded-card px-3 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
-                        pathname === href
-                          ? "bg-hub-surface text-hub-aqua"
-                          : "text-hub-navy",
-                      )}
-                    >
-                      <Icon className="size-4 shrink-0" aria-hidden="true" />
-                      <span>{label}</span>
-                    </Link>
-                  ) : (
-                    <div
-                      key={href}
-                      className="flex items-center gap-3 rounded-card px-3 py-3 text-sm font-medium text-hub-muted"
-                    >
-                      <Icon className="size-4 shrink-0" aria-hidden="true" />
-                      <span>{label}</span>
-                      <span className="ml-auto rounded-badge bg-hub-surface px-2 py-0.5 text-[11px] font-medium text-hub-muted">
-                        Coming soon
-                      </span>
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-          </details>
+              <Icon className="size-3.5 shrink-0" aria-hidden="true" />
+              {label}
+            </Link>
+          ))}
+          {upcomingNavItems.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "relative flex items-center gap-2 py-1 text-sm font-medium transition-colors duration-200 hover:text-hub-aqua",
+                pathname === href
+                  ? "text-hub-aqua after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-hub-aqua"
+                  : "text-hub-navy",
+              )}
+            >
+              {label}
+              <span className="rounded-badge bg-hub-surface px-2 py-0.5 text-[11px] font-medium text-hub-muted">
+                Soon
+              </span>
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-4">

@@ -5,9 +5,32 @@ Author tags: [Claude] = planning/design decisions, [Codex] = code written in rep
 
 ---
 
+## 2026-05-25 - Blog 1 layout fixes
+
+- [Codex] Fix - Centered all blog layout columns: breadcrumb, date/author line, title, description, and body now all share the same `max-w-3xl mx-auto` centered column in `BlogLayout.tsx`
+- [Codex] Fix - Widened prose column from 68ch to `max-w-3xl` (48rem / ~768px); removed `max-width` and `margin` from `.prose-hub` in `globals.css` — layout wrapper now controls width, `.prose-hub` is typography-only
+- [Codex] Fix - Hero height capped at `max-h-120` (480px) so the first screenful shows title + image top + start of body; hero stays full container width for visual impact
+- [Codex] Fix - Author attribution updated throughout: OG `authors` → `["Nextbyrd Team"]`, schema `author` references `#organization`, Person node removed from `@graph`
+- [Codex] Fix - Body copy color corrected: `.prose-hub p`, `.prose-hub li`, `.prose-hub blockquote` now `#374151` instead of the muted `#615d59`; `#615d59` reserved for figcaptions, meta line, and sources list only
+- [Codex] Fix - Key Takeaways box list items bumped to `0.9375rem` and darkened to `#374151`
+- [Codex] Fix - Added Chrome auto-link suppression CSS for `a:not([href])` and `a[href^="tel:"]`/`mailto:`/`maps:` in `p`, `li`, and `header` contexts
+
+## 2026-05-24 - Blog 1 route build
+
+- [Codex] Feature - Built Blog 1 route at `/blog/how-much-does-a-website-cost-for-a-small-business`: full article as TSX with all content inline (no MDX dependency), hero image from `/img/blog1.webp`, three inline SVG charts (cost by method, load-time vs conversion, maintenance tiers), comparison table, FAQ section, author bio card, and breadcrumb nav
+- [Codex] Feature - Extracted `BlogLayout` and `BlogAuthorBio` as shared components at `components/blog/BlogLayout.tsx`: breadcrumb → header (date/author/readTime + H1 + description) → full-width hero → prose-hub article body — used by every blog post
+- [Codex] Feature - Added `.prose-hub` CSS class to `globals.css` for all blog typography: `p`, `h2`, `h3`, `ul`, `ol`, `blockquote`, `hr`, `figure`, `figcaption`, `table`, `th`, `td`, and `a` — all tokens sourced from DESIGN.md
+- [Codex] Feature - Updated blog listing page `/blog` to show Blog 1 as a card with cover image, date, read time, title, description, and hover state
+- [Codex] Feature - Added `Blog` nav link (BookOpen icon) to HubHeader desktop nav and MobileNav drawer alongside Cost Calculator
+- [Codex] Feature - Added Blog link to HubFooter
+- [Codex] Feature - Added blog post URL to `sitemap.ts` at priority 0.8
+- [Codex] Feature - Wired all schema JSON-LD (BlogPosting, Organization, BreadcrumbList, FAQPage, ImageObject) via `<script type="application/ld+json">` directly in the page component; author references `#organization`, no Person node
+
 ## 2026-05-24 - Launch docs sync
 
-- [Codex] Fix - Synced launch navigation with the latest docs: desktop now uses a Tools dropdown, mobile uses an expandable Tools group, planned tools are marked coming soon, and footer links only promote live launch destinations
+- [Codex] Fix - Trimmed the launch sitemap to the two real indexable pages only: homepage and Website Cost Calculator
+- [Codex] Launch - Confirmed `hub.nextbyrd.com` is live on Vercel with DNS resolving and production returning 200; owner-reported Lighthouse is 100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO on mobile and desktop
+- [Codex] Fix - Synced launch navigation with the latest docs phasing: header and mobile drawer now show Cost Calculator plus a clearly marked Design Library soon link, while Blog stays hidden until real content exists
 - [Codex] Fix - Resolved Lighthouse accessibility warnings by raising muted/aqua contrast and removing the decorative homepage preview card from the heading outline
 - [Codex] Fix - Added homepage JSON-LD for Organization, WebSite, WebPage, and the visible homepage tool list
 - [Codex] Fix - Tuned the calculator FAQ for featured-snippet extraction with answer-first wording and a small-business cost question while keeping JSON-LD synced from the visible FAQ data

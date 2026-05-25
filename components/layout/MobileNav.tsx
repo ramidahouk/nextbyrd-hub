@@ -3,56 +3,32 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  BarChart2,
-  ChevronDown,
-  ClipboardList,
-  Layers,
-  Menu,
-  Search,
-  X,
-  type LucideIcon,
-} from "lucide-react";
+import { ClipboardList, BookOpen, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ToolItem = {
-  href: string;
-  label: string;
-  Icon: LucideIcon;
-  status: "live" | "soon";
-};
-
-const toolItems: ToolItem[] = [
+const liveNavItems = [
   {
     href: "/website-cost-calculator",
     label: "Cost Calculator",
     Icon: ClipboardList,
-    status: "live",
   },
   {
-    href: "/website-builder-comparison",
-    label: "Build Options",
-    Icon: Layers,
-    status: "soon",
+    href: "/blog",
+    label: "Blog",
+    Icon: BookOpen,
   },
+];
+
+const upcomingNavItems = [
   {
-    href: "/website-speed-calculator",
-    label: "Speed Calculator",
-    Icon: BarChart2,
-    status: "soon",
-  },
-  {
-    href: "/website-grader",
-    label: "Website Grader",
-    Icon: Search,
-    status: "soon",
+    href: "/design-library",
+    label: "Design Library",
   },
 ];
 
 export default function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -93,54 +69,44 @@ export default function MobileNav() {
           <X className="size-5" />
         </button>
 
-        <div className="mt-8 flex flex-col gap-1">
-          <button
-            type="button"
-            onClick={() => setToolsOpen((current) => !current)}
-            aria-expanded={toolsOpen}
-            className="flex w-full items-center justify-between rounded-card px-5 py-3 text-left text-sm font-semibold text-hub-navy transition-colors hover:bg-hub-surface hover:text-hub-aqua"
-          >
-            <span>Tools</span>
-            <ChevronDown
-              className={cn(
-                "size-4 transition-transform duration-200",
-                toolsOpen && "rotate-180",
-              )}
-            />
-          </button>
-
-          {toolsOpen ? (
-            <ul className="flex flex-col gap-1 pl-3">
-              {toolItems.map(({ href, label, Icon, status }) => (
-                <li key={href}>
-                  {status === "live" ? (
-                    <Link
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
-                        pathname === href
-                          ? "bg-hub-surface text-hub-aqua"
-                          : "text-hub-navy",
-                      )}
-                    >
-                      <Icon className="size-4 shrink-0" aria-hidden="true" />
-                      <span>{label}</span>
-                    </Link>
-                  ) : (
-                    <div className="flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium text-hub-muted">
-                      <Icon className="size-4 shrink-0" aria-hidden="true" />
-                      <span>{label}</span>
-                      <span className="ml-auto rounded-badge bg-hub-surface px-2 py-0.5 text-[11px] font-medium text-hub-muted">
-                        Soon
-                      </span>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
+        <ul className="mt-8 flex flex-col gap-1">
+          {liveNavItems.map(({ href, label, Icon }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "flex w-full items-center gap-3 rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
+                  pathname === href
+                    ? "bg-hub-surface text-hub-aqua"
+                    : "text-hub-navy",
+                )}
+              >
+                <Icon className="size-4 shrink-0" aria-hidden="true" />
+                <span>{label}</span>
+              </Link>
+            </li>
+          ))}
+          {upcomingNavItems.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "flex w-full items-center justify-between gap-3 rounded-card px-5 py-3 text-sm font-medium transition-colors hover:bg-hub-surface hover:text-hub-aqua",
+                  pathname === href
+                    ? "bg-hub-surface text-hub-aqua"
+                    : "text-hub-navy",
+                )}
+              >
+                <span>{label}</span>
+                <span className="rounded-badge bg-hub-surface px-2 py-0.5 text-[11px] font-medium text-hub-muted">
+                  Soon
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-auto border-t border-hub-border pt-5">
           <Link
